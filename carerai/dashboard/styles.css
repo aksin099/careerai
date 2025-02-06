@@ -1,0 +1,784 @@
+/* Əsas Dəyişənlər */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --bg-color: #f8fafc;
+    --sidebar-bg: #ffffff;
+    --text-color: #1f2937;
+    --border-color: #e5e7eb;
+    --hover-color: #f1f5f9;
+    --message-ai-bg: #f3f4f6;
+    --message-user-bg: #2563eb;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Əsas Stillər */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Stili */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 280px;
+    background: var(--sidebar-bg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.logo-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+/* Naviqasiya Linkləri */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+    background: var(--hover-color);
+}
+
+.sidebar-nav a.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* İstifadəçi Profili */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1rem;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.user-info p {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* Əsas Məzmun */
+.main-content {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat Header */
+.chat-header {
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ai-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.ai-status h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.ai-status p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+}
+
+.clear-chat {
+    padding: 0.5rem 1rem;
+    background: var(--hover-color);
+    border: none;
+    border-radius: 8px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.clear-chat:hover {
+    background: #e2e8f0;
+}
+
+/* Chat Container */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    overflow-y: auto;
+    background: transparent;
+}
+
+.chat-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Mesaj Stillər */
+.message {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 70%;
+}
+
+.user-message {
+    align-self: flex-end;
+}
+
+.message-content {
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.ai-message .message-content {
+    background: rgba(243, 244, 246, 0.9);
+}
+
+.user-message .message-content {
+    background: rgba(37, 99, 235, 0.9);
+    color: white;
+}
+
+.message-time {
+    font-size: 0.8rem;
+    color: #64748b;
+    align-self: flex-end;
+}
+
+/* Chat Input */
+.chat-input-container {
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.suggested-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.suggested-questions button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.suggested-questions button:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.chat-input {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background: white;
+    padding: 0.8rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.chat-input input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    background: transparent;
+    border-radius: 8px;
+}
+
+.send-button {
+    background: transparent;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.send-button img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.send-button:hover {
+    transform: scale(1.1);
+}
+
+.send-button:hover img {
+    transform: translateX(2px);
+}
+
+/* Responsive Dizayn */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        bottom: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}
+
+/* Müsahibə Hazırlığı Formu - Yenilənmiş Stillər */
+.interview-prep {
+    background: var(--bg-color);
+    padding: 2rem;
+    flex: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.interview-form-container {
+    width: 100%;
+    max-width: 900px; /* Genişliyi artırıldı */
+    margin: 2rem auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.form-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 3rem 2rem; /* Padding artırıldı */
+}
+
+.form-header h1 {
+    font-size: 2.5rem; /* Font ölçüsü artırıldı */
+}
+
+.interview-form {
+    padding: 3rem; /* Padding artırıldı */
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 2rem; /* Margin artırıldı */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 1.1rem; /* Font ölçüsü artırıldı */
+}
+
+.interview-type-selector {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /* Gap artırıldı */
+    margin-top: 1rem;
+}
+
+.type-option {
+    position: relative;
+}
+
+.type-option input[type="radio"] {
+    display: none;
+}
+
+.type-option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem; /* Padding artırıldı */
+    background: var(--bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.type-option label i {
+    font-size: 2.5rem; /* İkon ölçüsü artırıldı */
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.type-option input[type="radio"]:checked + label {
+    border-color: var(--primary-color);
+    background: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem; /* Margin artırıldı */
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.prev-btn, .next-btn {
+    padding: 1rem 2rem; /* Padding artırıldı */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1.1rem; /* Font ölçüsü artırıldı */
+}
+
+.next-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.prev-btn {
+    background: var(--hover-color);
+    color: var(--text-color);
+}
+
+.next-btn:hover {
+    background: var(--secondary-color);
+    transform: translateX(2px);
+}
+
+.prev-btn:hover {
+    background: #e2e8f0;
+    transform: translateX(-2px);
+}
+
+.step-indicators {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.step-dot {
+    width: 12px; /* Ölçü artırıldı */
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form elementləri */
+select, input[type="text"], textarea {
+    width: 100%;
+    padding: 1.2rem; /* Padding artırıldı */
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1.1rem; /* Font ölçüsü artırıldı */
+    transition: all 0.3s ease;
+}
+
+select:focus, input[type="text"]:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Responsive dizayn */
+@media (max-width: 768px) {
+    .interview-form-container {
+        margin: 1rem;
+    }
+    
+    .interview-form {
+        padding: 1.5rem;
+    }
+    
+    .form-header {
+        padding: 2rem;
+    }
+    
+    .form-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* CV Builder Styles */
+.cv-builder {
+    padding: 2rem;
+    background: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.cv-options {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 95%;
+}
+
+.cv-section {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.section-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.section-header h2 i {
+    color: var(--primary-color);
+}
+
+.section-header p {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+/* CV Analiz Bölməsi */
+.upload-area {
+    border: 2px dashed var(--border-color);
+    border-radius: 15px;
+    padding: 4rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-color);
+    background: var(--hover-color);
+}
+
+.upload-area.drag-over {
+    border-color: var(--primary-color);
+    background: var(--hover-color);
+    transform: scale(1.02);
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.upload-content i {
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+.upload-content h3 {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin: 1rem 0;
+}
+
+.upload-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+}
+
+.upload-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.file-info {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.analyze-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.analyze-btn:disabled {
+    background: #cbd5e1;
+    cursor: not-allowed;
+}
+
+.analyze-btn:not(:disabled):hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Template Grid */
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.template-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-color);
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.template-preview {
+    height: 250px;
+    background: var(--bg-color);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.template-preview i {
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+.template-card h3 {
+    margin: 1.5rem 0;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.use-template-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.use-template-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cv-builder {
+        padding: 1rem;
+    }
+
+    .cv-section {
+        padding: 2rem;
+    }
+
+    .template-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .upload-area {
+        padding: 3rem 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+} 

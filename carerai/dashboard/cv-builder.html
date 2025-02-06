@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Hazırlama - CareerAI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sol Panel -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logofoto.jpg" alt="CareerAI" class="logo-icon">
+                <span>CareerAI</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>AI Məsləhətçi</span>
+                </a>
+                <a href="cv-builder.html" class="active">
+                    <i class="fas fa-file-alt"></i>
+                    <span>CV Hazırlama</span>
+                </a>
+                <a href="career-plan.html">
+                    <i class="fas fa-road"></i>
+                    <span>Karyera Planı</span>
+                </a>
+                <a href="interview-prep.html">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Müsahibə Hazırlığı</span>
+                </a>
+            </nav>
+
+            <div class="user-profile">
+                <img src="20231223-linkedinportre.jpg" alt="İstifadəçi">
+                <div class="user-info">
+                    <h4>Əli Məmmədov</h4>
+                    <p>Pro İstifadəçi</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Əsas Məzmun -->
+        <main class="main-content cv-builder">
+            <div class="cv-options">
+                <!-- CV Analiz Bölməsi -->
+                <div class="cv-section analyze-cv">
+                    <div class="section-header">
+                        <h2><i class="fas fa-magnifying-glass-chart"></i> CV Analizi</h2>
+                        <p>Mövcud CV-nizi yükləyin və AI analizi alın</p>
+                    </div>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="cvFile" accept=".pdf,.doc,.docx" hidden>
+                        <div class="upload-content">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h3>CV-nizi buraya sürüşdürün</h3>
+                            <p>və ya</p>
+                            <button class="upload-btn" onclick="document.getElementById('cvFile').click()">
+                                Faylı Seçin
+                            </button>
+                            <p class="file-info">PDF, DOC və ya DOCX (Max 5MB)</p>
+                        </div>
+                    </div>
+
+                    <button class="analyze-btn" disabled>
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                        CV-ni Analiz Et
+                    </button>
+                </div>
+
+                <!-- Yeni CV Yaratma Bölməsi -->
+                <div class="cv-section create-cv">
+                    <div class="section-header">
+                        <h2><i class="fas fa-file-circle-plus"></i> Yeni CV Yarat</h2>
+                        <p>Professional CV-nizi AI dəstəyi ilə hazırlayın</p>
+                    </div>
+
+                    <div class="template-grid">
+                        <div class="template-card">
+                            <div class="template-preview modern">
+                                <i class="fas fa-file-lines"></i>
+                            </div>
+                            <h3>Modern</h3>
+                            <button class="use-template-btn">
+                                <i class="fas fa-plus"></i> İstifadə Et
+                            </button>
+                        </div>
+
+                        <div class="template-card">
+                            <div class="template-preview classic">
+                                <i class="fas fa-file-lines"></i>
+                            </div>
+                            <h3>Klassik</h3>
+                            <button class="use-template-btn">
+                                <i class="fas fa-plus"></i> İstifadə Et
+                            </button>
+                        </div>
+
+                        <div class="template-card">
+                            <div class="template-preview creative">
+                                <i class="fas fa-file-lines"></i>
+                            </div>
+                            <h3>Kreativ</h3>
+                            <button class="use-template-btn">
+                                <i class="fas fa-plus"></i> İstifadə Et
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="cv-builder.js"></script>
+</body>
+</html> 

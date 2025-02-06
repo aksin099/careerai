@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerAI Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sol Panel -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logofoto.jpg" alt="CareerAI" class="logo-icon">
+                <span>CareerAI</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="active">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>AI Məsləhətçi</span>
+                </a>
+                <a href="cv-builder.html">
+                    <i class="fas fa-file-alt"></i>
+                    <span>CV Hazırlama</span>
+                </a>
+                <a href="career-plan.html">
+                    <i class="fas fa-road"></i>
+                    <span>Karyera Planı</span>
+                </a>
+                <a href="interview-prep.html">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Müsahibə Hazırlığı</span>
+                </a>
+            </nav>
+
+            <div class="user-profile">
+                <img src="20231223-linkedinportre.jpg" alt="İstifadəçi">
+                <div class="user-info">
+                    <h4>Əli Məmmədov</h4>
+                    <p>Pro İstifadəçi</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Əsas Məzmun -->
+        <main class="main-content">
+            <header class="chat-header">
+                <div class="ai-info">
+                    <div class="ai-avatar">
+                        <img src="logofoto.jpg" alt="CareerAI" class="ai-avatar-img">
+                    </div>
+                    <div class="ai-status">
+                        <h2>CareerAI Məsləhətçi</h2>
+                        <p><span class="status-dot"></span> Aktiv</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="clear-chat">
+                        <i class="fas fa-broom"></i>
+                        Söhbəti Təmizlə
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat-container">
+                <div class="chat-messages">
+                    <!-- AI Mesajı -->
+                    <div class="message ai-message">
+                        <div class="message-content">
+                            <p>Salam! Mən CareerAI məsləhətçinizəm. Karyera inkişafınız üçün sizə necə kömək edə bilərəm?</p>
+                        </div>
+                        <span class="message-time">14:30</span>
+                    </div>
+
+                    <!-- İstifadəçi Mesajı -->
+                    <div class="message user-message">
+                        <div class="message-content">
+                            <p>Salam! CV hazırlamaqda kömək lazımdır.</p>
+                        </div>
+                        <span class="message-time">14:31</span>
+                    </div>
+
+                    <!-- AI Mesajı -->
+                    <div class="message ai-message">
+                        <div class="message-content">
+                            <p>Əlbəttə! CV hazırlamaq üçün bir neçə təməl məsləhət verə bilərəm. İlk olaraq, hansı sahə üzrə CV hazırlamaq istəyirsiniz?</p>
+                        </div>
+                        <span class="message-time">14:32</span>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="suggested-questions">
+                        <button>CV hazırlama qaydaları</button>
+                        <button>Müsahibəyə hazırlıq</button>
+                        <button>Karyera məsləhəti</button>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="Mesajınızı yazın...">
+                        <button class="send-button">
+                            <img src="send.png" alt="Göndər">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

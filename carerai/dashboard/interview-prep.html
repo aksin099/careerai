@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Müsahibə Hazırlığı - CareerAI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sol Panel (eyni qalır) -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logofoto.jpg" alt="CareerAI" class="logo-icon">
+                <span>CareerAI</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>AI Məsləhətçi</span>
+                </a>
+                <a href="cv-builder.html">
+                    <i class="fas fa-file-alt"></i>
+                    <span>CV Hazırlama</span>
+                </a>
+                <a href="career-plan.html">
+                    <i class="fas fa-road"></i>
+                    <span>Karyera Planı</span>
+                </a>
+                <a href="interview-prep.html" class="active">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Müsahibə Hazırlığı</span>
+                </a>
+            </nav>
+
+            <div class="user-profile">
+                <img src="20231223-linkedinportre.jpg" alt="İstifadəçi">
+                <div class="user-info">
+                    <h4>Əli Məmmədov</h4>
+                    <p>Pro İstifadəçi</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Əsas Məzmun -->
+        <main class="main-content interview-prep">
+            <div class="interview-form-container">
+                <div class="form-header">
+                    <h1><i class="fas fa-user-tie"></i> Müsahibə Hazırlığı</h1>
+                    <p>Müsahibəniz üçün lazım olan məlumatları daxil edin</p>
+                </div>
+
+                <form id="interviewForm" class="interview-form">
+                    <div class="form-step active" data-step="1">
+                        <div class="form-group">
+                            <label>Müsahibənin növü</label>
+                            <div class="interview-type-selector">
+                                <div class="type-option">
+                                    <input type="radio" id="technical" name="interviewType" value="technical">
+                                    <label for="technical">
+                                        <i class="fas fa-code"></i>
+                                        <span>Texniki</span>
+                                    </label>
+                                </div>
+                                <div class="type-option">
+                                    <input type="radio" id="psychological" name="interviewType" value="psychological">
+                                    <label for="psychological">
+                                        <i class="fas fa-brain"></i>
+                                        <span>Psixoloji</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="2">
+                        <div class="form-group">
+                            <label for="field">Hansı sahə üzrə müsahibə keçirmək istəyirsiniz?</label>
+                            <select id="field" name="field" required>
+                                <option value="">Sahə seçin</option>
+                                <option value="software">Proqramlaşdırma</option>
+                                <option value="design">Dizayn</option>
+                                <option value="marketing">Marketinq</option>
+                                <option value="management">Menecment</option>
+                                <option value="other">Digər</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="3">
+                        <div class="form-group">
+                            <label for="requirements">Həmin sahə üzrə müsahibədə sizdən əsas nə tələb olunur?</label>
+                            <textarea id="requirements" name="requirements" rows="4" placeholder="Məsələn: 3 il təcrübə, JavaScript bilgisi, komanda işi bacarığı..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="4">
+                        <div class="form-group">
+                            <label for="company">Müsahibə üçün seçəcəyiniz şirkətin adı</label>
+                            <input type="text" id="company" name="company" placeholder="Şirkətin adını daxil edin" required>
+                        </div>
+                    </div>
+
+                    <div class="form-step" data-step="5">
+                        <div class="form-group">
+                            <label for="additional">Əlavə qeydləriniz</label>
+                            <textarea id="additional" name="additional" rows="4" placeholder="Əlavə məlumatları buraya yazın..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-navigation">
+                        <button type="button" class="prev-btn" disabled>
+                            <i class="fas fa-arrow-left"></i> Geri
+                        </button>
+                        <div class="step-indicators">
+                            <span class="step-dot active"></span>
+                            <span class="step-dot"></span>
+                            <span class="step-dot"></span>
+                            <span class="step-dot"></span>
+                            <span class="step-dot"></span>
+                        </div>
+                        <button type="button" class="next-btn">
+                            İrəli <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="interview-prep.js"></script>
+</body>
+</html> 
